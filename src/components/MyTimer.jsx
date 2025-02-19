@@ -44,7 +44,7 @@ function MyTimer() {
     }, [isRunning]);
     // console.log({ customTime })
     return (
-        <div className='flex flex-col items-center justify-center h-[50vh]'>
+        <div className='heart flex flex-col items-center justify-center h-[70vh]'>
             <div className='m-2 flex gap-2 justify-center items-center'>
                 <box-icon
                     onClick={restartTimer}
@@ -70,7 +70,7 @@ function MyTimer() {
                     className={`rounded-full fill-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:fill-white transition-colors duration-300 ease-in-out active:scale-95` + (!isRunning ? ' bg-[var(--color-primary)] fill-white' : '')}>
                 </box-icon>
             </div>
-            <span className="countdown agdasima text-8xl">
+            <span className="countdown agdasima text-8xl mb-[25vh]">
                 <span style={{ "--value": minutes }}></span>:
                 <span style={{ "--value": seconds }}></span>
             </span >

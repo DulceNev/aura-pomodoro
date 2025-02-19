@@ -3,7 +3,7 @@ import useTimerStore from "../store/useTimerStore";
 function Header() {
     const { modoFocus, descansoCorto, descansoLargo, isModoFocus, isDescansoCorto, isDescansoLargo } = useTimerStore();
     return (
-        <header className="h-40 bg-transparent flex justify-between items-center px-15  text-xl">
+        <header className="h-30 bg-transparent flex justify-between items-center px-15  text-xl">
             <box-icon name='cog'
                 size='md'
                 className="rounded-full fill-[var(--color-primary)] hover:bg-[var(--color-primary)] p-1 transition-colors duration-300 ease-in-out active:scale-95 hover:fill-white ">

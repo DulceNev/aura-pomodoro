@@ -6,7 +6,16 @@ body {
   height: 100vh;
   width: 100vw;
   color: var(--color-primary);
-  background: radial-gradient( #ffa0c6, #ffa9cb, #ffffff);
+  background:
+      /* url('../public/img/heart-aura.png') no-repeat center/cover, */
+      radial-gradient(#ffa0c6, #ffa9cb, #ffffff);
+}
+
+.heart{
+  background-image: url('../public/img/heart-aura.png');
+  background-size: 900px auto;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .agdasima {
