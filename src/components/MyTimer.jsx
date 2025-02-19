@@ -7,9 +7,10 @@ import { useEffect } from 'react';
 function MyTimer() {
     const { customTime, setCustomTime, modoFocus, descansoCorto, descansoLargo, setIsRunning, isModoFocus, isDescansoCorto, isDescansoLargo } = useTimerStore();
     const workCycleDuration = (1 * 60 * customTime); // 25 minutos
+    const alarmSound = new Audio('../../public/audio/love-alarm.mp3');
     const time = new Date();
     time.setSeconds(time.getSeconds() + workCycleDuration);
-    const { seconds, minutes, restart, pause, resume, isRunning } = useTimer({ expiryTimestamp: time });
+    const { seconds, minutes, restart, pause, resume, isRunning } = useTimer({ expiryTimestamp: time, onExpire: () => alarmSound.play() });
 
     const restartTimer = () => {
         const time = new Date();
@@ -43,6 +44,9 @@ function MyTimer() {
         }
     }, [isRunning]);
     // console.log({ customTime })
+
+
+
     return (
         <div className='heart flex flex-col items-center justify-center h-[70vh]'>
             <div className='m-2 flex gap-2 justify-center items-center'>
