@@ -2,12 +2,13 @@
 @plugin "daisyui";
 
 :root{
+  --color-primary: #bb316b;
+  --color-primary-content: #ffbed8;
+
     --color-base-100: oklch(100% 0 0);
     --color-base-200: oklch(96.115% 0 0);
     --color-base-300: oklch(92.416% 0.001 197.137);
     --color-base-content: oklch(27.807% 0.029 256.847);
-    --color-primary: oklch(49.12% 0.309 275.75);
-    --color-primary-content: oklch(89.824% 0.061 275.75);
     --color-secondary: oklch(69.71% 0.329 342.55);
     --color-secondary-content: oklch(98.71% 0.01 342.55);
     --color-accent: oklch(76.76% 0.184 183.61);

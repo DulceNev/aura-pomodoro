@@ -1,14 +1,15 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import 'boxicons'
-import { useState } from 'react';
 import { useTimer } from 'react-timer-hook'
-import useTimerStore from './store/useTimerStore'; // Asegúrate de que la ruta sea correcta
+import useTimerStore from './store/useTimerStore';
+import { useEffect } from 'react';
 
 function MyTimer() {
-    const { customTime, setCustomTime } = useTimerStore(); // Obtén el estado y la función
-    const workCycleDuration = (1 * 60 * customTime); // 25 minutos en segundos
+    const { customTime, setCustomTime, modoFocus, descansoCorto, descansoLargo, setIsRunning, isModoFocus, isDescansoCorto, isDescansoLargo } = useTimerStore();
+    const workCycleDuration = (1 * 60 * customTime); // 25 minutos
     const time = new Date();
     time.setSeconds(time.getSeconds() + workCycleDuration);
-    const { seconds, minutes, restart, pause, resume } = useTimer({ expiryTimestamp: time });
+    const { seconds, minutes, restart, pause, resume, isRunning } = useTimer({ expiryTimestamp: time });
 
     const restartTimer = () => {
         const time = new Date();
@@ -16,33 +17,64 @@ function MyTimer() {
         restart(time);
     };
 
-    const secondsFormatted = String(seconds).padStart(2, '0');
-    const minutesFormatted = String(minutes);
-    const displayMinutes = minutesFormatted[0] === '0' ? minutesFormatted.slice(1) : minutesFormatted;
-
 
     function handleInputChange(event) {
         const value = event.target.value;
-        console.log(value);
         setCustomTime(value);
     }
+    useEffect(() => {
+        // console.log(customTime);
+        restartTimer();
+        pause();
+    }, [customTime]);
 
+    useEffect(() => {
+        // console.log(customTime);
+        pause();
+    }, []);
+    useEffect(() => {
+        // console.log({ isRunning });
+        setIsRunning(false);
+        if (!isRunning && !(isDescansoCorto || isDescansoLargo || isModoFocus)) {
+            descansoCorto(false);
+            descansoLargo(false);
+            modoFocus(false);
+            // console.log('no esta corriendo')
+        }
+    }, [isRunning]);
+    // console.log({ customTime })
     return (
-        <>
-            <div className='flex justify-center'>
-                {/* <p>{hours}:</p> */}
-                <p>{displayMinutes}:</p>
-                <p>{secondsFormatted}</p>
+        <div className='flex flex-col items-center justify-center h-[50vh]'>
+            <div className='m-2 flex gap-2 justify-center items-center'>
+                <box-icon
+                    onClick={restartTimer}
+                    name='refresh'
+                    size="md"
+                    type="solid"
+                    className="rounded-full fill-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:fill-white transition-colors duration-300 ease-in-out active:scale-95">
+                </box-icon>
+
+                <box-icon
+                    onClick={resume}
+                    name='play'
+                    size="md"
+                    type="solid"
+                    className={`pl-1 rounded-full fill-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:fill-white transition-colors duration-300 ease-in-out active:scale-95` + (isRunning ? ' bg-[var(--color-primary)] fill-white' : '')}>
+                </box-icon>
+
+                <box-icon
+                    onClick={pause}
+                    name='pause'
+                    size="md"
+                    type="solid"
+                    className={`rounded-full fill-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:fill-white transition-colors duration-300 ease-in-out active:scale-95` + (!isRunning ? ' bg-[var(--color-primary)] fill-white' : '')}>
+                </box-icon>
             </div>
-            <input onChange={handleInputChange} type="number" />
-            <button onClick={restartTimer}><box-icon name='rotate-left'></box-icon></button>
-            <button onClick={resume}><box-icon name='play'></box-icon></button>
-            <button onClick={pause}><box-icon name='pause'></box-icon></button>
-            <span className="countdown font-mono text-2xl">
-                <span style={{ "--value": minutes }}></span>m
-                <span style={{ "--value": seconds }}></span>s
+            <span className="countdown agdasima text-8xl">
+                <span style={{ "--value": minutes }}></span>:
+                <span style={{ "--value": seconds }}></span>
             </span >
-        </>
+        </div>
     );
 }
 
