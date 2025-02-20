@@ -7,8 +7,7 @@ body {
   width: 100vw;
   color: var(--color-primary);
   background:
-      /* url('../public/img/heart-aura.png') no-repeat center/cover, */
-      radial-gradient(#ffa0c6, #ffa9cb, #ffffff);
+      radial-gradient(var(--color-base-content),var(--color-base-content), var(--color-primary-content));
 }
 
 .heart{

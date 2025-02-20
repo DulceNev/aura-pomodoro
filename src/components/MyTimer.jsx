@@ -2,20 +2,24 @@
 import 'boxicons'
 import { useTimer } from 'react-timer-hook'
 import useTimerStore from './store/useTimerStore';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import Fireworks from "react-canvas-confetti/dist/presets/fireworks";
+import Snow from "react-canvas-confetti/dist/presets/snow";
 
 function MyTimer() {
     const { customTime, setCustomTime, modoFocus, descansoCorto, descansoLargo, setIsRunning, isModoFocus, isDescansoCorto, isDescansoLargo } = useTimerStore();
     const workCycleDuration = (1 * 60 * customTime); // 25 minutos
     const alarmSound = new Audio('../../public/audio/love-alarm.mp3');
     const time = new Date();
+    const [showFireworks, setShowFireworks] = useState(false);
     time.setSeconds(time.getSeconds() + workCycleDuration);
-    const { seconds, minutes, restart, pause, resume, isRunning } = useTimer({ expiryTimestamp: time, onExpire: () => alarmSound.play() });
+    const { seconds, minutes, restart, pause, resume, isRunning } = useTimer({ expiryTimestamp: time, onExpire: () => { alarmSound.play(); setShowFireworks(true) } });
 
     const restartTimer = () => {
         const time = new Date();
         time.setSeconds(time.getSeconds() + workCycleDuration);
         restart(time);
+        pause();
     };
 
 
@@ -41,6 +45,9 @@ function MyTimer() {
             descansoLargo(false);
             modoFocus(false);
             // console.log('no esta corriendo')
+        }
+        if (isRunning) {
+            setShowFireworks(false);
         }
     }, [isRunning]);
     // console.log({ customTime })
@@ -78,6 +85,10 @@ function MyTimer() {
                 <span style={{ "--value": minutes }}></span>:
                 <span style={{ "--value": seconds }}></span>
             </span >
+            {showFireworks && <>
+                {/* <Fireworks autorun={{ speed: 3, duration: 5000 }} /> */}
+                <Snow autorun={{ speed: 60, duration: 5000 }} />
+            </>}
         </div>
     );
 }

@@ -13,8 +13,8 @@ function Header() {
                 <button
                     onClick={() => modoFocus(!isModoFocus)}
                     className={`${isModoFocus
-                        ? 'bg-[#ffa0c6]/30 backdrop-blur-md border-[rgba(255,255,255,0.4)]'
-                        : 'bg-[#FFD9E9]/30 backdrop-blur-md border-[rgba(255,255,255,0.4)]'
+                        ? 'bg-[var(--color-secondary-content)]/30 backdrop-blur-md border-[rgba(255,255,255,0.4)]'
+                        : 'bg-[var(--color-secondary)]/30 backdrop-blur-md border-[rgba(255,255,255,0.4)]'
                         } px-14 py-2 rounded-[20px] border-solid border-1 shadow-[0_6px_4px_rgba(140,39,81,0.3)]`}
                 >
                     Enfoque
@@ -23,8 +23,8 @@ function Header() {
                 <button
                     onClick={() => descansoCorto(!isDescansoCorto)}
                     className={`${isDescansoCorto
-                        ? 'bg-[#ffa0c6]/30 backdrop-blur-md border-[rgba(255,255,255,0.4)]'
-                        : 'bg-[#FFD9E9]/30 backdrop-blur-md border-[rgba(255,255,255,0.4)]'
+                        ? 'bg-[var(--color-secondary-content)]/30 backdrop-blur-md border-[rgba(255,255,255,0.4)]'
+                        : 'bg-[var(--color-secondary)]/30 backdrop-blur-md border-[rgba(255,255,255,0.4)]'
                         } px-10 py-2 rounded-[20px] border-solid border-1 shadow-[0_6px_4px_rgba(140,39,81,0.3)]`}
                 >
                     Descanso corto
@@ -33,8 +33,8 @@ function Header() {
                 <button
                     onClick={() => descansoLargo(!isDescansoLargo)}
                     className={`${isDescansoLargo
-                        ? 'bg-[#ffa0c6]/30 backdrop-blur-md border-[rgba(255,255,255,0.4)]'
-                        : 'bg-[#FFD9E9]/30 backdrop-blur-md border-[rgba(255,255,255,0.4)]'
+                        ? 'bg-[var(--color-secondary-content)]/30 backdrop-blur-md border-[rgba(255,255,255,0.4)]'
+                        : 'bg-[var(--color-secondary)]/30 backdrop-blur-md border-[rgba(255,255,255,0.4)]'
                         } px-10 py-2 rounded-[20px] border-solid border-1 shadow-[0_6px_4px_rgba(140,39,81,0.3)]`}
                 >
                     Descanso largo

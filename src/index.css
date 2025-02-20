@@ -2,15 +2,22 @@
 @plugin "daisyui";
 
 :root{
-  --color-primary: #bb316b;
-  --color-primary-content: #ffbed8;
+    --color-primary: #bb316b;
+    --color-primary-content: white;
 
-    --color-base-100: oklch(100% 0 0);
-    --color-base-200: oklch(96.115% 0 0);
-    --color-base-300: oklch(92.416% 0.001 197.137);
-    --color-base-content: oklch(27.807% 0.029 256.847);
-    --color-secondary: oklch(69.71% 0.329 342.55);
-    --color-secondary-content: oklch(98.71% 0.01 342.55);
+    /* boton */
+    --color-secondary: #FFD9E9;  
+    --color-secondary-content: #ffa0c6; 
+
+    /* gardiant */
+    --color-base-content: #ffb5d1;
+
+  /* --------- */
+
+    --color-base-100: #ffa0c6;
+    --color-base-200: #FFD9E9;
+    --color-base-300: #ffa0c6;
+    
     --color-accent: oklch(76.76% 0.184 183.61);
     --color-accent-content: oklch(15.352% 0.036 183.61);
     --color-neutral: oklch(20% 0.024 255.701);
@@ -23,4 +30,7 @@
     --color-warning-content: oklch(0% 0 0);
     --color-error: oklch(71.76% 0.221 22.18);
     --color-error-content: oklch(0% 0 0);
+  }
+  .descanso{
+    --color-primary: blue;
   }
