@@ -4,6 +4,7 @@
 import './App.css'
 import MyTimer from './components/MyTimer'
 import Header from './components/Header/Header'
+import Drawer from './components/Drawer/Drawer'
 function App() {
   // const [count, setCount] = useState(0)
 
@@ -11,6 +12,7 @@ function App() {
     <>
       <Header></Header>
       <MyTimer></MyTimer>
+      <Drawer></Drawer>
     </>
   )
 }

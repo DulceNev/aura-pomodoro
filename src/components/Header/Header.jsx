@@ -1,51 +1,56 @@
 import useTimerStore from "../store/useTimerStore";
-
+import 'boxicons'
+import Button from "../common/Button";
+import IconButton from "../common/IconButton";
 function Header() {
     const { modoFocus, descansoCorto, descansoLargo, isModoFocus, isDescansoCorto, isDescansoLargo } = useTimerStore();
     return (
         <header className="h-30 bg-transparent flex justify-between items-center px-15  text-xl">
-            <box-icon name='cog'
-                size='md'
-                className="rounded-full fill-[var(--color-primary)] hover:bg-[var(--color-primary)] p-1 transition-colors duration-300 ease-in-out active:scale-95 hover:fill-white ">
-            </box-icon>
+            <label htmlFor="my-drawer">
+                <IconButton
+                    icon='cog'
+                    size='md'
+                    type='outline'
+                    className="rounded-full fill-[var(--color-primary)] hover:bg-[var(--color-primary)] p-1 transition-colors duration-300 ease-in-out active:scale-95 hover:fill-white "
+                />
+            </label>
 
             <nav className="flex justify-center items-center gap-4">
-                <button
+                <Button
                     onClick={() => modoFocus(!isModoFocus)}
-                    className={`${isModoFocus
-                        ? 'bg-[var(--color-secondary-content)]/30 backdrop-blur-md border-[rgba(255,255,255,0.4)]'
-                        : 'bg-[var(--color-secondary)]/30 backdrop-blur-md border-[rgba(255,255,255,0.4)]'
-                        } px-14 py-2 rounded-[20px] border-solid border-1 shadow-[0_6px_4px_rgba(140,39,81,0.3)]`}
+                    isActive={isModoFocus}
                 >
                     Enfoque
-                </button>
+                </Button>
 
-                <button
+                <Button
                     onClick={() => descansoCorto(!isDescansoCorto)}
-                    className={`${isDescansoCorto
-                        ? 'bg-[var(--color-secondary-content)]/30 backdrop-blur-md border-[rgba(255,255,255,0.4)]'
-                        : 'bg-[var(--color-secondary)]/30 backdrop-blur-md border-[rgba(255,255,255,0.4)]'
-                        } px-10 py-2 rounded-[20px] border-solid border-1 shadow-[0_6px_4px_rgba(140,39,81,0.3)]`}
+                    isActive={isDescansoCorto}
+
                 >
                     Descanso corto
-                </button>
+                </Button>
 
-                <button
+                <Button
                     onClick={() => descansoLargo(!isDescansoLargo)}
-                    className={`${isDescansoLargo
-                        ? 'bg-[var(--color-secondary-content)]/30 backdrop-blur-md border-[rgba(255,255,255,0.4)]'
-                        : 'bg-[var(--color-secondary)]/30 backdrop-blur-md border-[rgba(255,255,255,0.4)]'
-                        } px-10 py-2 rounded-[20px] border-solid border-1 shadow-[0_6px_4px_rgba(140,39,81,0.3)]`}
+                    isActive={isDescansoLargo}
+
                 >
                     Descanso largo
-                </button>
+                </Button>
 
 
 
             </nav>
 
+            <IconButton
+                icon='code'
+                size='md'
+                type='outline'
 
-            <box-icon name='code' size='md' className="p-1 fill-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:fill-white transition-colors duration-300 ease-in-out active:scale-95 rounded-full"></box-icon>
+            />
+
+
 
 
         </header>

@@ -1,13 +1,13 @@
-/* eslint-disable react-hooks/exhaustive-deps */
+
 import 'boxicons'
 import { useTimer } from 'react-timer-hook'
 import useTimerStore from './store/useTimerStore';
 import { useEffect, useState } from 'react';
-import Fireworks from "react-canvas-confetti/dist/presets/fireworks";
+// import Fireworks from "react-canvas-confetti/dist/presets/fireworks";
 import Snow from "react-canvas-confetti/dist/presets/snow";
-
+import IconButton from './common/IconButton';
 function MyTimer() {
-    const { customTime, setCustomTime, modoFocus, descansoCorto, descansoLargo, setIsRunning, isModoFocus, isDescansoCorto, isDescansoLargo } = useTimerStore();
+    const { customTime, modoFocus, descansoCorto, descansoLargo, setIsRunning, isModoFocus, isDescansoCorto, isDescansoLargo } = useTimerStore();
     const workCycleDuration = (1 * 60 * customTime); // 25 minutos
     const alarmSound = new Audio('../../public/audio/love-alarm.mp3');
     const time = new Date();
@@ -23,10 +23,10 @@ function MyTimer() {
     };
 
 
-    function handleInputChange(event) {
-        const value = event.target.value;
-        setCustomTime(value);
-    }
+    // function handleInputChange(event) {
+    //     const value = event.target.value;
+    //     setCustomTime(value);
+    // }
     useEffect(() => {
         // console.log(customTime);
         restartTimer();
@@ -57,29 +57,27 @@ function MyTimer() {
     return (
         <div className='heart flex flex-col items-center justify-center h-[70vh]'>
             <div className='m-2 flex gap-2 justify-center items-center'>
-                <box-icon
+
+                <IconButton
                     onClick={restartTimer}
-                    name='refresh'
-                    size="md"
-                    type="solid"
-                    className="rounded-full fill-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:fill-white transition-colors duration-300 ease-in-out active:scale-95">
-                </box-icon>
+                    icon='refresh'
 
-                <box-icon
+
+                />
+                <IconButton
                     onClick={resume}
-                    name='play'
-                    size="md"
-                    type="solid"
-                    className={`pl-1 rounded-full fill-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:fill-white transition-colors duration-300 ease-in-out active:scale-95` + (isRunning ? ' bg-[var(--color-primary)] fill-white' : '')}>
-                </box-icon>
+                    icon='play'
+                    className="pl-1"
+                    isActive={isRunning}
+                />
 
-                <box-icon
+                <IconButton
                     onClick={pause}
-                    name='pause'
-                    size="md"
-                    type="solid"
-                    className={`rounded-full fill-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:fill-white transition-colors duration-300 ease-in-out active:scale-95` + (!isRunning ? ' bg-[var(--color-primary)] fill-white' : '')}>
-                </box-icon>
+                    icon='pause'
+                    isActive={!isRunning}
+                />
+
+
             </div>
             <span className="countdown agdasima text-8xl mb-[25vh]">
                 <span style={{ "--value": minutes }}></span>:
@@ -87,7 +85,7 @@ function MyTimer() {
             </span >
             {showFireworks && <>
                 {/* <Fireworks autorun={{ speed: 3, duration: 5000 }} /> */}
-                <Snow autorun={{ speed: 60, duration: 5000 }} />
+                <Snow autorun={{ speed: 40, duration: 5000 }} />
             </>}
         </div>
     );
