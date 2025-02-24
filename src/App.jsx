@@ -1,7 +1,8 @@
 // import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
-import './App.css'
+// import './App.css'
+import 'react-tooltip/dist/react-tooltip.css'
 import MyTimer from './components/MyTimer'
 import Header from './components/Header/Header'
 import Drawer from './components/Drawer/Drawer'
@@ -10,6 +11,7 @@ function App() {
 
   return (
     <>
+
       <Header></Header>
       <MyTimer></MyTimer>
       <Drawer></Drawer>

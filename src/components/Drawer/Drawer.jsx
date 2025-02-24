@@ -15,7 +15,7 @@ function Drawer() {
             </div>
             <div className="drawer-side">
                 <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay "></label>
-                <ul className="menu bg-base-200 text-primary rounded-xl text-base-content min-h-full w-80 py-10 flex flex-col items-center gap-4">
+                <ul className="menu bg-base-200 text-primary rounded-xl min-h-full w-80 py-10 flex flex-col items-center gap-4">
                     {/* Sidebar content here */}
                     <h2 className="text-2xl font-bold mb-4">⊹ ˚ ₊  Ajustes  ₊ ˚ ⊹</h2>
 

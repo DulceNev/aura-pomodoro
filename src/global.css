@@ -5,14 +5,20 @@
 html, body {
  font-size: 24px !important;
 }
+@theme{
+  --color-pulsed-button: #ffa0c6;
+  --color-unpulsed-button: #FFD9E9;
+  --color-bg-gradient-1: #ffb5d1;
+  --color-tooltip-main: #d3427e;
 
+}
 body {
   font-family: "Mouse Memoirs", serif;
   height: 100vh;
   width: 100vw;
-  color: var(--color-primary);
+  color: var(--primary);
   background:
-    radial-gradient(var(--color-base-content), var(--color-base-content), var(--color-primary-content));
+    radial-gradient(var(--gradient-1), var(--gradient-1), white);
 }
 
 .heart {
@@ -27,19 +33,58 @@ body {
   font-weight: 400;
   font-style: normal;
 }
+ @plugin "daisyui/theme" {
+   name: "focus";
+   default: false;
+   prefersdark: false;
+   color-scheme: "light";
 
-@plugin "daisyui/theme" {
+   --color-primary: oklch(50% 0.213 27.518);
+   // primary color
+   
+ }
+[data-theme="focus"] {
+  /* --primary: #bb316b; */
+
+  /* --pulsed-button: #FFD9E9; */
+  /* --unpulsed-button: #ffa0c6; */
+
+  /* --gradient-1: #ffb5d1; */
+  /* --tooltip-color: #d3427e; */
+}
+
+[data-theme="short-break"] {
+  --primary: #3166bb;
+
+  --pulsed-button: #daedff;
+  --unpulsed-button: #9fcdff;
+
+  --gradient-1: #cef0ff;
+
+  --tooltip-color: #91c6ff;
+}
+
+[data-theme="long-break"] {
+  --primary: #7f40af;
+
+  --pulsed-button: #f0e0ff;
+  --unpulsed-button: #de9dff;
+
+  --gradient-1: #e0c3ff;
+
+  --tooltip-color: #e4afff;
+}
+
+/* @plugin "daisyui/theme" {
   name: "valentine";
   default: false;
   prefersdark: false;
   color-scheme: "light";
   --color-primary: #bb316b;
 
-  /* boton */
   --color-secondary: #FFD9E9;
   --color-secondary-content: #ffa0c6;
 
-  /* gardiant */
   --color-base-content: #ffb5d1;
 
   --color-base-100: oklch(97% 0.014 343.198);
@@ -67,8 +112,8 @@ body {
   --border: 1px;
   --depth: 0;
   --noise: 0;
-}
-:root{
+} */
+/* :root{
     --color-primary: #bb316b;
     --color-primary-content: white;
 
@@ -94,8 +139,8 @@ body {
     --color-warning-content: oklch(0% 0 0);
     --color-error: oklch(71.76% 0.221 22.18);
     --color-error-content: oklch(0% 0 0);
-  }
+  } */
 
-  .descanso{
+  /* .descanso{
     --color-primary: blue;
-  }
+  } */

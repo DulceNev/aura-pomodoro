@@ -22,11 +22,6 @@ function MyTimer() {
         pause();
     };
 
-
-    // function handleInputChange(event) {
-    //     const value = event.target.value;
-    //     setCustomTime(value);
-    // }
     useEffect(() => {
         // console.log(customTime);
         restartTimer();
@@ -61,9 +56,8 @@ function MyTimer() {
                 <IconButton
                     onClick={restartTimer}
                     icon='refresh'
-
-
                 />
+
                 <IconButton
                     onClick={resume}
                     icon='play'
