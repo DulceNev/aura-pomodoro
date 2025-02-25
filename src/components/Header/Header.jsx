@@ -19,7 +19,10 @@ function Header() {
                     size='md'
                     type='outline'
                     onClick={openDrawer}
-                    className="rounded-full fill-[var(--primary )] hover:bg-[var(--primary)] p-1 transition-colors duration-300 ease-in-out active:scale-95 hover:fill-white "
+                    hasTooltip={true}
+                    tooltipText="Ajustes"
+                    tooltipPlace="bottom"
+                    className="rounded-full fill-primary hover:bg-primary p-1 transition-colors duration-300 ease-in-out active:scale-95 hover:fill-white "
                 />
             </label>
 
@@ -56,6 +59,9 @@ function Header() {
                     icon='code'
                     size='md'
                     type='outline'
+                    hasTooltip={true}
+                    tooltipText="Sobre mi"
+                    tooltipPlace="bottom"
                 />
             </label>
 

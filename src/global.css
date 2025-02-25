@@ -6,141 +6,93 @@ html, body {
  font-size: 24px !important;
 }
 @theme{
-  --color-pulsed-button: #ffa0c6;
-  --color-unpulsed-button: #FFD9E9;
+  --color-pulsed-button: #ffc4dc;
+  --color-unpulsed-button: #ffd4e5;
   --color-bg-gradient-1: #ffb5d1;
   --color-tooltip-main: #d3427e;
+  --color-primary: #bb316b;
 
 }
-body {
-  font-family: "Mouse Memoirs", serif;
-  height: 100vh;
-  width: 100vw;
-  color: var(--primary);
-  background:
-    radial-gradient(var(--gradient-1), var(--gradient-1), white);
-}
 
-.heart {
-  background-image: url('../public/img/heart-aura.png');
-  background-size: 900px auto;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.agdasima {
-  font-family: "Agdasima", serif;
-  font-weight: 400;
-  font-style: normal;
-}
  @plugin "daisyui/theme" {
    name: "focus";
-   default: false;
+   default: true;
    prefersdark: false;
    color-scheme: "light";
-
-   --color-primary: oklch(50% 0.213 27.518);
-   // primary color
+   --color-primary: #bb316b;
+   color: var(--color-primary);
    
  }
-[data-theme="focus"] {
-  /* --primary: #bb316b; */
-
-  /* --pulsed-button: #FFD9E9; */
-  /* --unpulsed-button: #ffa0c6; */
-
-  /* --gradient-1: #ffb5d1; */
-  /* --tooltip-color: #d3427e; */
-}
-
-[data-theme="short-break"] {
-  --primary: #3166bb;
-
-  --pulsed-button: #daedff;
-  --unpulsed-button: #9fcdff;
-
-  --gradient-1: #cef0ff;
-
-  --tooltip-color: #91c6ff;
-}
-
-[data-theme="long-break"] {
-  --primary: #7f40af;
-
-  --pulsed-button: #f0e0ff;
-  --unpulsed-button: #de9dff;
-
-  --gradient-1: #e0c3ff;
-
-  --tooltip-color: #e4afff;
-}
-
-/* @plugin "daisyui/theme" {
-  name: "valentine";
+@plugin "daisyui/theme" {
+  name: "short-break";
   default: false;
   prefersdark: false;
   color-scheme: "light";
-  --color-primary: #bb316b;
+  --color-primary: #3166bb;
+  --color-unpulsed-button: #daedff;
+  --color-pulsed-button: #9fcdff;
+  --color-bg-gradient-1: #cef0ff;
+  --color-tooltip-main: #91c6ff;
+}
 
-  --color-secondary: #FFD9E9;
-  --color-secondary-content: #ffa0c6;
+@plugin "daisyui/theme" {
+  name: "long-break";
+  default: false;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-primary: #7f40af;
+  --color-unpulsed-button: #f0e0ff;
+  --color-pulsed-button: #de9dff;
+  --color-bg-gradient-1: #e0c3ff;
+  --color-tooltip-main: #e4afff;
+}
 
-  --color-base-content: #ffb5d1;
+[data-theme="short-break"] {
+  .heart {
+    background-image: url('img/heart-aura-blue.png');
+    /* filter: hue-rotate(256deg); */
+  }
+}
+[data-theme="long-break"] {
+  .heart {
+    background-image: url('/img/heart-aura-purple.png');
+    /* filter: hue-rotate(310deg); */
+  }
+}
 
-  --color-base-100: oklch(97% 0.014 343.198);
-  --color-base-200: oklch(94% 0.028 342.258);
-  --color-base-300: oklch(89% 0.061 343.231);
-  --color-primary-content: oklch(100% 0 0);
+
+
+    body {
+      font-family: "Mouse Memoirs", serif;
+      height: 100vh;
+      width: 100vw;
+      color: var(--color-primary);
+      background:
+        radial-gradient(var(--color-bg-gradient-1), var(--color-bg-gradient-1), white);
+    }
   
-  --color-accent: oklch(82% 0.111 230.318);
-  --color-accent-content: oklch(39% 0.09 240.876);
-  --color-neutral: oklch(40% 0.153 2.432);
-  --color-neutral-content: oklch(89% 0.061 343.231);
-  --color-info: oklch(86% 0.127 207.078);
-  --color-info-content: oklch(44% 0.11 240.79);
-  --color-success: oklch(84% 0.143 164.978);
-  --color-success-content: oklch(43% 0.095 166.913);
-  --color-warning: oklch(75% 0.183 55.934);
-  --color-warning-content: oklch(26% 0.079 36.259);
-  --color-error: oklch(63% 0.237 25.331);
-  --color-error-content: oklch(97% 0.013 17.38);
-  --radius-selector: 1rem;
-  --radius-field: 2rem;
-  --radius-box: 1rem;
-  --size-selector: 0.25rem;
-  --size-field: 0.25rem;
-  --border: 1px;
-  --depth: 0;
-  --noise: 0;
-} */
-/* :root{
-    --color-primary: #bb316b;
-    --color-primary-content: white;
-
-    --color-secondary: #FFD9E9;  
-    --color-secondary-content: #ffa0c6; 
-
-    --color-base-content: #ffb5d1;
-
-
-    --color-base-100: #ffa0c6;
-    --color-base-200: #FFD9E9;
-    --color-base-300: #ffa0c6;
-    
-    --color-accent: oklch(76.76% 0.184 183.61);
-    --color-accent-content: oklch(15.352% 0.036 183.61);
-    --color-neutral: oklch(20% 0.024 255.701);
-    --color-neutral-content: oklch(89.499% 0.011 252.096);
-    --color-info: oklch(72.06% 0.191 231.6);
-    --color-info-content: oklch(0% 0 0);
-    --color-success: oklch(64.8% 0.15 160);
-    --color-success-content: oklch(0% 0 0);
-    --color-warning: oklch(84.71% 0.199 83.87);
-    --color-warning-content: oklch(0% 0 0);
-    --color-error: oklch(71.76% 0.221 22.18);
-    --color-error-content: oklch(0% 0 0);
-  } */
-
-  /* .descanso{
-    --color-primary: blue;
-  } */
+    .heart {
+      background-image: url('/img/heart-aura-pink.png');
+      background-size: 900px auto;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: hue-rotate(0);
+      transition: filter 5s ease-in-out;
+    }
+  
+    .agdasima {
+      font-family: "Agdasima", serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+    .is-changing{
+      .countdown {
+      
+          &>*,
+          :before,
+          :after {
+            transition: color 0s;
+          }
+        }
+    }
+   

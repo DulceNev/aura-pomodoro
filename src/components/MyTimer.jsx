@@ -50,33 +50,52 @@ function MyTimer() {
 
 
     return (
-        <div className='heart flex flex-col items-center justify-center h-[70vh]'>
-            <div className='m-2 flex gap-2 justify-center items-center'>
+        <div className='relative flex flex-col items-center justify-start h-[70vh] pt-[76px]'>
+            <div className="heart absolute top-0 left-0 w-full h-full z-[0]"></div>
+            <div className="">
 
-                <IconButton
-                    onClick={restartTimer}
-                    icon='refresh'
-                />
+                <div className='m-2 flex gap-2 justify-center items-center relative '>
 
-                <IconButton
-                    onClick={resume}
-                    icon='play'
-                    className="pl-1"
-                    isActive={isRunning}
-                />
+                    <IconButton
+                        onClick={restartTimer}
+                        icon='refresh'
+                        hasTooltip={true}
+                        tooltipText="Reiniciar"
+                        tooltipPlace="top"
+                    />
 
-                <IconButton
-                    onClick={pause}
-                    icon='pause'
-                    isActive={!isRunning}
-                />
+                    <IconButton
+                        onClick={resume}
+                        icon='play'
+                        className="pl-1"
+                        isActive={isRunning}
+                        hasTooltip={true}
+                        tooltipText="Iniciar"
+                        tooltipPlace="top"
+                    />
+
+                    <IconButton
+                        onClick={pause}
+                        icon='pause'
+                        isActive={!isRunning}
+                        hasTooltip={true}
+                        tooltipText="Pausar"
+                        tooltipPlace="top"
+                    />
 
 
+                </div>
+                <div className="relative flex">
+
+                    <span className="countdown agdasima text-8xl ">
+                        <span style={{ "--value": minutes }}></span>
+                        :
+                        <span style={{ "--value": seconds }}></span>
+
+                    </span >
+
+                </div>
             </div>
-            <span className="countdown agdasima text-8xl mb-[25vh]">
-                <span style={{ "--value": minutes }}></span>:
-                <span style={{ "--value": seconds }}></span>
-            </span >
             {showFireworks && <>
                 {/* <Fireworks autorun={{ speed: 3, duration: 5000 }} /> */}
                 <Snow autorun={{ speed: 40, duration: 5000 }} />

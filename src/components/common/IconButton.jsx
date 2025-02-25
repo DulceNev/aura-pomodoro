@@ -2,21 +2,31 @@ import PropTypes from 'prop-types';
 
 import '../../global.css'
 import 'boxicons'
-import { Tooltip } from 'react-tooltip';
-function IconButton({ icon = "home", onClick, size = "md", type = "solid", className, isActive = false }) {
+
+function IconButton({ icon = "home", onClick, size = "md", type = "solid", className, isActive = false, hasTooltip = false, tooltipText = "", tooltipPlace = "top" }) {
+    const getTooltipPlace = (place) => {
+        const places = {
+            "bottom": "tooltip-bottom",
+            "top": "tooltip-top",
+            "left": "tooltip-left",
+            "right": "tooltip-right",
+        }
+        return places[place] || "";
+
+    }
     return (
         <>
-            <button data-tooltip-id={icon} data-tooltip-place="top">
+            <button className={` ${hasTooltip ? `tooltip  tooltip-primary ${getTooltipPlace(tooltipPlace)}` : ''}`} data-tip={tooltipText} >
                 <box-icon
                     onClick={onClick}
                     name={icon}
                     size={size}
                     type={type}
-                    className={`rounded-full fill-[var(--primary)] hover:bg-[var(--primary)] cursor-pointer hover:fill-white transition-colors duration-300 ease-in-out active:scale-95 ${className} ${isActive ? 'fill-white bg-[var(--primary)]' : ''}`}>
+                    className={`rounded-full fill-primary hover:bg-primary cursor-pointer hover:fill-white transition-colors duration-300 ease-in-out active:scale-95 ${className} ${isActive ? 'fill-white bg-primary' : ''}`}>
                 </box-icon>
             </button>
 
-            <Tooltip
+            {/* <Tooltip
                 id={icon}
                 delayShow={100}
                 style={{
@@ -28,7 +38,7 @@ function IconButton({ icon = "home", onClick, size = "md", type = "solid", class
                 }}
             >
                 {icon}
-            </Tooltip>
+            </Tooltip> */}
         </>
     );
 }
@@ -40,5 +50,8 @@ IconButton.propTypes = {
     type: PropTypes.string,
     className: PropTypes.string,
     isActive: PropTypes.bool,
+    hasTooltip: PropTypes.bool,
+    tooltipText: PropTypes.string,
+    tooltipPlace: PropTypes.string,
 };
 export default IconButton;
