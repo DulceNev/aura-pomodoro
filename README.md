@@ -1,14 +1,14 @@
-# 💖 Pomodoro Timer
+# 💖 Aura Pomodoro
 
-**Mi Pomodoro** Pomodoro Timer es una aplicación web diseñada para mejorar la productividad mediante la técnica Pomodoro. Con un diseño cute inspirado en tonos pastel y corazones, esta herramienta permite a los usuarios gestionar sus sesiones de trabajo y descanso de manera eficiente.
+**Mi Pomodoro** Aura pomodoro es una aplicación web diseñada para mejorar la productividad mediante la técnica Pomodoro. Con un diseño cute inspirado en tonos pastel y corazones, esta herramienta permite a los usuarios gestionar sus sesiones de trabajo y descanso de manera eficiente.
 
-<p style="text-align:center"><img src="./public/pomodoro.png" alt="Miniatura de aluraflix" /></p>
+<p style="text-align:center"><img src="./public/pomodoro.png" alt="Miniatura de pomodoro" /></p>
 
 ### 🌐 Demo 🌐
 
 _Puedes ver la demostración del proyecto en el siguiente enlace_
 
--   [Demo](https://alura-flix-eta-pink.vercel.app/)
+-   [Demo]([aura-pomodoro.vercel.app](https://aura-pomodoro.vercel.app/))
 
 ## 🛠️ **Tecnologías utilizadas**
 
