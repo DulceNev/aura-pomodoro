@@ -12,8 +12,8 @@ function Header() {
         }
     }
     return (
-        <header className="h-30 bg-transparent flex justify-between items-center px-15  text-xl">
-            <label htmlFor="my-drawer" data-tooltip-id="settings-tooltip" data-tooltip-place="bottom">
+        <header className="h-30 bg-transparent flex justify-center items-center px-15  text-xl">
+            {/* <label htmlFor="my-drawer" data-tooltip-id="settings-tooltip" data-tooltip-place="bottom">
                 <IconButton
                     icon='cog'
                     size='md'
@@ -24,7 +24,7 @@ function Header() {
                     tooltipPlace="bottom"
                     className="rounded-full fill-primary hover:bg-primary p-1 transition-colors duration-300 ease-in-out active:scale-95 hover:fill-white "
                 />
-            </label>
+            </label> */}
 
             <nav className="flex justify-center items-center gap-4">
                 <Button
@@ -54,7 +54,7 @@ function Header() {
 
             </nav>
 
-            <label data-tooltip-id="code-tooltip" data-tooltip-place="bottom">
+            {/* <label data-tooltip-id="code-tooltip" data-tooltip-place="bottom">
                 <IconButton
                     icon='code'
                     size='md'
@@ -63,7 +63,7 @@ function Header() {
                     tooltipText="Sobre mi"
                     tooltipPlace="bottom"
                 />
-            </label>
+            </label> */}
 
         </header>
     );
