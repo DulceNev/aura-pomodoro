@@ -8,8 +8,9 @@ import Snow from "react-canvas-confetti/dist/presets/snow";
 import IconButton from './common/IconButton';
 function MyTimer() {
     const { customTime, modoFocus, descansoCorto, descansoLargo, setIsRunning, isModoFocus, isDescansoCorto, isDescansoLargo } = useTimerStore();
+
     const workCycleDuration = (1 * 60 * customTime); // 25 minutos
-    const alarmSound = new Audio('../../public/audio/love-alarm.mp3');
+    const alarmSound = new Audio('/audio/love-alarm.mp3');
     const time = new Date();
     const [showFireworks, setShowFireworks] = useState(false);
     time.setSeconds(time.getSeconds() + workCycleDuration);
